@@ -1,0 +1,50 @@
+$primary-font: 'Roboto', sans-serif;
+$primary-font-title: 'Roboto Mono', monospace;
+
+$fw-bold: 700;
+$fw-medium: 500;
+$fw-normal: 400;
+$fw-light: 300;
+
+$base-color-primary: #20b2aa;
+$base-color-dark: #1a8e88;
+$base-color-light: #2dd9d0;
+
+$base-color-secondary: #f8f8ff;
+
+$color-white: #ffffff;
+$color-light-grey: #d3d3d3;
+$color-dark-grey: #4a4a4a;
+$color-darkest-grey: #3b3b3b;
+
+$full-width: 100%;
+$half-width: 50%;
+
+%primary-shadow {box-shadow: 0 0 8px 0 rgba(0,0,0.1);}
+%no-decoration {text-decoration: none;}
+%u-decoration {text-decoration: underline;}
+
+@mixin flex-container ($property, $value) {
+  display: flex;
+  #{$property}: $value;
+}
+
+@mixin for-phone-only {
+  @media (max-width: 767.98px) { @content; }
+}
+
+@mixin for-tablet-only {
+  @media (min-width: 768px) and (max-width: 1199.98px) { @content; }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin fontSize($size) {
+  font-size: calculateRem($size);
+}
+
+@function calculateRem($size) {
+  @return $size / 16px * 1rem;
+}
